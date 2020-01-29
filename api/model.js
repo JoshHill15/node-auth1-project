@@ -20,13 +20,6 @@ function findById(id){
 }
 
 function add(user) {
-    console.log("user",user)
-     return db("users")
-        .insert(user)
-        .then(ids => {
-            console.log("ids",ids)
-            return findById(ids[0]);
-        })
-        .catch(err => console.log("err",err))
+     return db("users").insert(user).then(ids => findById(ids[0]))
 }
 
